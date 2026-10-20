@@ -121,7 +121,6 @@
     minimap2 -I500M -x asm5 Nipponbare.fasta IR64.fasta > Nipponbare_IR64.paf 2> Nipponbare_IR64.paf.err
     ```
 
-    > **Notes**
     >
     > - The parameter preset `-x asm5` is suited to align assemblies from the same species.
     > - The value of `-I` is reduced from the default (4 GB) to 500 MB to reduce the memory requirments.
@@ -184,7 +183,6 @@
     blastn -db IR64.fasta -query pla1.fasta -outfmt 6 > pla1_IR64.txt
     ```
 
-    > **Notes**
     >
     > - `-outfmt 6` means [tabular](http://www.metagenomics.wiki/tools/blast/blastn-output-format-6) output.
 
@@ -210,7 +208,6 @@
      | sort | xargs samtools faidx  IR64.fasta  > pla1_IR64_all_hits.fasta
     ```
 
-    > **Notes**
     >
     > - The backslash `\` makes it possible to split long lines into two.
 
@@ -235,7 +232,6 @@
     gmap_build IR64.fasta -D . -d IR64_db > IR64_build.out 2> IR64_build.err &
     ```
 
-    > **Notes**
     >
     > - The `&` at the end of the line sends the process immediately to the background.
 
@@ -246,7 +242,6 @@
     gmap -f 2 -D . -d IR64_db pla1.fasta > pla1_IR64_gmap.gff
     ```
 
-    > **Notes**
     >
     > - `-f 2` generate GFF output. A description of the GFF format can be found [here](https://www.ensembl.org/info/website/upload/gff.html).
 
@@ -291,7 +286,6 @@
     wget -O file_list.tsv 'https://www.ebi.ac.uk/ena/portal/api/filereport?accession=PRJEB25119&result=read_run&fields=study_accession,sample_accession,experiment_accession,run_accession,tax_id,scientific_name,fastq_ftp,submitted_md5,submitted_ftp,sra_ftp&format=tsv&download=true'
     ```
 
-    > **Notes**
     >
     > - The long URL is one you copied to clipboard. You can paste it with Ctrl+Shift+V. The download file will be named `file_list.tsv`.
 
@@ -331,7 +325,6 @@
     #f0e418bc72ca6433012e0182e54348a4  -
     ```
 
-    > **Notes**
     >
     > - The two need to match. Otherwise, there was an error during the transfer and some files have to be downloaded again.
 
@@ -429,7 +422,6 @@
      | paste -d , - kallisto.txt | awk 'BEGIN{print "stage,allele,rep,folder"} {print}' > sample_info.csv
     ```
 
-    > **Notes**
     >
     > - Assignment of transcript isoforms to genes.
     > - List of Kallisto output directories.
